@@ -1,0 +1,34 @@
+1. Start
+
+2. Define function as f(x)
+
+3. Define derivative of function as g(x)
+
+4. Input:
+	a. Initial guess x0 
+	b. Tolerable Error e
+	c. Maximum Iteration N
+
+5. Initialize iteration counter step = 1
+
+6. Do 
+	If g(x0) = 0
+		Print "Mathematical Error"
+		Stop
+	End If
+
+	x1 = x0 - f(x0) / g(x0)
+	x0 = x1
+	
+	step = step + 1
+	
+	If step > N
+		Print "Not Convergent"
+		Stop
+	End If
+
+   While abs f(x1) > e 
+
+7. Print root as x1
+
+8. Stop

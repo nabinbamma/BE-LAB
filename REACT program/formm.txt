@@ -1,0 +1,43 @@
+
+class App extends React.Component {
+  state = {
+    input: {
+      name: '',
+      password: ''
+    },
+    onPress: false
+  }
+  changeValue = (obj) => (e) => {
+    this.setState({ input: { ...this.state.input, [obj]: e.target.value } })
+
+  }
+
+  render() {
+    return (
+      <div>
+        <label>Username: </label>
+        <input placeholder="name" onChange={this.changeValue('name')}></input>
+
+        <label>Password:</label>
+        <input placeholder="password" onChange={this.changeValue('password')}></input>
+        <button onClick={() => this.setState({ onPress: true })}>Submit</button>
+        {this.state.onPress ?
+          <Page data={this.state.input} />
+          :
+          <Page data={{ name: 'not given', password: 'not given' }} />
+
+        }
+      </div>
+    );
+  }
+}
+class Page extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>Welcome {this.props.data.name} </p>
+        <p>your password is {this.props.data.password}</p>
+      </div>
+    );
+  }
+}

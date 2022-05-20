@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<math.h>
+float f(float x)
+{
+	return(x*x-4*x-10);
+}
+float df(float x)
+{
+	return(2*x-4);
+}
+int main()
+{
+	int c;
+	float x0,x1,tol=0.0005;
+	printf("enter the initial guess:\n");
+	scanf("%f",&x0);
+
+do{
+	printf("%d\t %f\t %f\t %f\t %f\t \n",c,x0,x1,f(x0),df(x0));
+		if(df(x0)<=0.0005)
+		{
+			printf("root cannot exit");
+			exit(0);
+		}
+			x1=x0-f(x0)/df(x0);
+			x0=x1;
+			c++;
+			if(c>=10)
+			{
+			printf("oscilltion occors");
+			exit(0);	
+			}
+			//printf("\n%d\t%0.3f\t%0.3f\t%0.3f\t%0.3f",count,x0,x1,f(x0),df(x0));
+	}
+		while(fabs(f(x0))>=tol);
+		printf(" the root is %f:\t",x0);
+		return 0;
+}

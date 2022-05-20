@@ -1,0 +1,43 @@
+
+import React from 'react';
+//import { Css } from './Components/Css'
+import { Link, BrowserRouter, Switch, Route } from 'react-router-dom';
+
+
+class App extends React.Component {
+  state={
+    input {
+      username:'';
+      password:''
+    };
+    onPress:false
+  }
+  handleInput=(col)=>(e)=>{
+    this.ListeningStateChangedEvent({input{...this.state.input,[col]:e.target.value}})
+  }
+  render() {
+    return (
+<div>
+<form class='container w-50 p-2'>
+  <div class="form-group>"
+<center>
+
+username<input type="username"/><br br/>
+password<input type="paassword"/><br br/>
+
+<button onClick={()=>this.props}>submit</button>
+<button onClick={()=>this.props}>cancel</button>
+</center>
+</form>
+</div>
+    );
+  }}
+  class Website extends React.Component{
+    render(){
+      return(
+        <h1>welcome to js class</h1>
+      )
+    }
+ }
+ 
+export default App;
